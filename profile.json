@@ -3,15 +3,17 @@
     "purpose": "Machine-readable career profile for recruiters and hiring managers",
     "updated": "2026-10-16",
     "human_versions": {
-      "portfolio": "https://github.com/hardyalsinghdeora/case-studies/blob/main/portfolio.html",
-      "resume": "https://github.com/hardyalsinghdeora/case-studies/blob/main/resume.html"
+      "portfolio": "https://hardyalsinghdeora.github.io/case-studies/portfolio.html",
+      "resume": "https://hardyalsinghdeora.github.io/case-studies/resume.html"
     }
   },
   "identity": {
     "full_name": "Hardyal Singh Deora",
     "display_name": "Hardyal Singh",
     "headline": "Principal Software Engineer | Commerce, Billing & Subscription Platforms",
-    "one_liner": "I build the systems that turn a school's purchase order into a student's first login.",
+    "one_liner": "I build the systems that turn a signed contract into an invoice, an activation and a live subscription, and make them auditable enough that finance can rely on the numbers.",
+    "one_liner_edtech": "I build the systems that turn a school's purchase order into a student's first login.",
+    "github_bio": "Commerce, billing & subscription platforms. TypeScript · Node · Postgres · AWS. India · Open to Remote.",
     "location": "Ahmedabad, Gujarat, India",
     "timezone": "IST (UTC+05:30)",
     "total_experience_years": 15,
@@ -33,23 +35,22 @@
       {
         "name": "Google Project Management Certificate",
         "issuer": "Google / Coursera",
-        "year": 2023,
+        "year": 2022,
         "verify": "https://coursera.org/verify/specialization/R8QES2TYMDN5"
       }
     ]
   },
   "contact": {
     "email_primary": "hardyalsinghdeora@gmail.com",
-    "phone_primary": "+91 9998961589",
     "linkedin": "https://www.linkedin.com/in/hardyalsinghdeora",
     "github": "https://github.com/hardyalsinghdeora",
     "public_case_study": "https://github.com/hardyalsinghdeora/case-studies/blob/main/migration-live-commerce-platform.md",
-    "preferred_channel": "Email (answered promptly); phone for scheduled calls"
+    "preferred_channel": "Email (answered promptly); happy to schedule a call from there"
   },
   "availability": {
     "status": "Open to conversations now; actively interviewing",
-    "notice_period": "Serving notice; last working day approx. mid-December 2026",
-    "earliest_join": "Mid-December 2026 (earlier release negotiable)",
+    "notice_period": "30 days",
+    "earliest_join": "30 days from offer acceptance",
     "work_mode": [
       "Remote",
       "Hybrid",
@@ -90,7 +91,15 @@
     },
     {
       "value": "~25,000",
-      "label": "words of migration specification authored and executed by other engineers"
+      "label": "words of migration specification (seven documents) authored and executed by other engineers"
+    },
+    {
+      "value": "500k+",
+      "label": "records backfilled in the live migration, consolidated from two upstream systems of record"
+    },
+    {
+      "value": "~30 → 4",
+      "label": "product-partitioned legacy tables consolidated into four generic ones"
     },
     {
       "value": "99.9%",
@@ -254,7 +263,7 @@
     },
     {
       "title": "Senior PHP Developer",
-      "company": "Analytics Solutions",
+      "company": "Analytics Solution",
       "location": "Ahmedabad, India",
       "from": "2015-06",
       "to": "2016-06",
@@ -274,7 +283,7 @@
     },
     {
       "title": "PHP Developer",
-      "company": "Seven Sleek Studio",
+      "company": "Seven Sleek",
       "location": "Ahmedabad, India",
       "from": "2013-01",
       "to": "2014-02",
@@ -285,7 +294,7 @@
     {
       "title": "Front End Developer",
       "company": "Softyoug Solution",
-      "location": "Ahmedabad, India",
+      "location": "Vapi, India",
       "from": "2011-10",
       "to": "2012-12",
       "highlights": [
@@ -297,12 +306,12 @@
     {
       "domain": "Commerce",
       "name": "Order & subscription platform",
-      "summary": "SKU-based catalogue with bundle suggestion by grade and subject, rules-engine discounting, finance-auditable premium pricing, multi-year orders, invoicing, and the activation keys that become a student's subscription."
+      "summary": "SKU-based catalogue with bundle suggestion by grade and subject, contract-term and proration logic built to be auditable by finance, a discount engine with a four-tier approval ladder (self-approval to C-suite sign-off), finance-auditable premium pricing, multi-year orders, invoicing, and the activation keys that become a student's subscription."
     },
     {
       "domain": "Migration",
       "name": "MySQL to Postgres, live",
-      "summary": "Two-way bridge between a fifteen-year-old MySQL estate and new Postgres microservices. Dual-write, reconciliation, and a mapping spec precise enough that someone else could run the cutover. Migrated by domain, not by table, so each cutover was independently reversible. Lesson: instrument reconciliation earlier."
+      "summary": "Two-way bridge between a fifteen-year-old MySQL estate and new Postgres services, with no maintenance window. A one-time historical backfill (read-only snapshot, stated cut-off, re-runnable) kept strictly separate from a continuous reverse sync into legacy tables; idempotency guards in the data; drift detection; a mapping spec precise enough that someone else could run the cutover. Migrated by domain, not by table, so each phase was independently reversible. Lesson: instrument reconciliation from day one."
     },
     {
       "domain": "Platform",
@@ -325,6 +334,47 @@
       "summary": "Third-party systems behind ports and adapters so a vendor can be swapped without touching a caller; bounded-concurrency scheduled syncs above the gateway."
     }
   ],
+  "migration_case_study": {
+    "title": "Moving a live commerce platform between two databases without a maintenance window",
+    "url": "https://github.com/hardyalsinghdeora/case-studies/blob/main/migration-live-commerce-platform.md",
+    "context": "B2B commerce platform selling annual seat-based contracts; six product lines, each with its own pricing shape; a dozen services; a ~15-year-old MySQL estate replaced by domain services on PostgreSQL, both live with customers throughout. Legacy products were not retired, so the result was two systems of record, both live, converging slowly.",
+    "options_rejected": [
+      "Freeze, dump, restore: unbounded failure mode, no quick way back from a failed restore",
+      "Big-bang cutover behind a flag: concentrates all risk in one moment; partial cutovers have no real recovery",
+      "Strangler at the edge only: legacy products still read shared identity and subscription records the same day",
+      "Application-layer dual-write alone: not one transaction across two engines; correctness that depends on discipline is not correctness"
+    ],
+    "design": [
+      "Two flows kept strictly separate, with separate code, schedules and failure modes",
+      "Flow one: one-time historical backfill, legacy to new, from a read-only snapshot, bounded by a stated historical cut-off, designed to be re-runnable",
+      "Flow two: continuous reverse sync, new to legacy, so legacy products keep reading; the new system is the system of record and legacy is a projection of it",
+      "Schema: ~30 product-partitioned legacy tables became four generic ones (order, line item, item detail, configuration); product identity moved from table names into columns and a JSON configuration with its own derivation spec",
+      "Ordering enforced by the runner: organisations before orders, orders before users and subscriptions",
+      "Idempotency in the data, not the runbook: an order is ported only when its external-origin identifier is null, so CRM-originated records are never duplicated"
+    ],
+    "numbers": {
+      "timeline": "Under six months from first specification to steady state",
+      "records_backfilled": "500k+, consolidated from two upstream systems of record",
+      "product_lines": 6,
+      "legacy_tables_to_generic": "~30 to 4",
+      "specification": "~25,000 words across seven documents; designed and specified by me, executed by a platform team",
+      "customer_visible_incidents": 0,
+      "rollbacks_exercised": 0
+    },
+    "lesson": "In any dual-write system drift is not a risk, it is a certainty with an unknown arrival time. Reconciliation must exist before the first write; it is part of the mechanism, not a phase after it.",
+    "would_do_differently": [
+      "Instrument reconciliation from day one",
+      "Write the configuration derivation before the transfer mechanism",
+      "Decide and state the historical cut-off on page one",
+      "Separate the two flows explicitly, sooner"
+    ],
+    "principles": [
+      "Separate the one-time historical port from continuous sync",
+      "Make every phase independently reversible",
+      "Enforce idempotency in the data",
+      "Treat reconciliation as part of the mechanism"
+    ]
+  },
   "current_focus_2026": [
     "Made the commercial platform the single system of record for client, order, payment and subscription; drove cross-team consolidation of scattered endpoints into one versioned service",
     "Historical order backfill — the long tail of the live MySQL→PostgreSQL migration — tracked as a decision record",
@@ -332,15 +382,34 @@
     "Real-time AI voice-agent pipeline on LiveKit/WebRTC with OpenAI and Gemini realtime models; assessed and rejected repurposing it for speech-to-text on cost grounds, recommended a dedicated STT plugin",
     "Staff identity consolidation: duplicate identities, stale access, consistent authorisation across services",
     "Engineering-ops automation: unattended scheduled PR review, PR inbox, build-release emails from the issue tracker, sprint/monthly briefings, tickets from conversation",
-    "Third-party low-code (Zoho Creator / Deluge) integration debugging for finance records",
-    "Analytical catalogue of 36 use cases from a 3.5k-row operational dataset to steer feature validation"
+    "Third-party low-code (Zoho Creator / Deluge) integration debugging for finance records"
   ],
   "projects": [
     {
       "name": "claude-toolkit",
       "status": "Shipped",
       "url": "https://github.com/hardyalsinghdeora/claude-toolkit",
-      "summary": "Eight dependency-free CLI tools that make AI-assisted coding sessions safer and cheaper: MCP server toggling with restorable config, a macOS Keychain vault so an agent can use a credential without seeing it, DB access that keeps passwords out of shell history, output compression, and offline code/schema/session indexes."
+      "summary": "Ten small, dependency-free CLI tools (Python 3) that make AI-assisted coding sessions safer and cheaper: MCP server toggling with restorable config, a macOS Keychain vault so an agent can use a credential without seeing it, DB access that keeps passwords out of shell history, output compression, offline code/schema/session indexes, a zero-token daily work log, and an offline Jira/Confluence fetcher.",
+      "tools": [
+        "claude-toggle: enable/disable MCP servers without losing config; profiles, backups, restore",
+        "claude-vault: secrets in the macOS Keychain, used by AI sessions without being seen",
+        "db-conn: Postgres and MySQL queries using vault-stored credentials; production read-only unless --write",
+        "squeeze: compresses verbose command output before it enters the transcript",
+        "cindex: per-project code index for compact path:line search results",
+        "dbindex: offline schema index for all vault database connections",
+        "csession: indexes Claude Code sessions by task, with resume-vs-new suggestions and briefs",
+        "toolkit: installs every tool and verifies the setup (install, doctor)",
+        "worklog: zero-token daily work logs from csession and git data",
+        "atl: offline Jira and Confluence fetcher that outputs compact TSV or text"
+      ],
+      "design_principles": [
+        "Small and dependency-free",
+        "Secrets used, not seen; never pass a secret as a CLI argument",
+        "Reversible changes: stash instead of delete, back up before every change",
+        "Safe defaults: dry-run and read-only unless explicitly overridden",
+        "Token efficiency: compact output and cheap offline lookups over live queries"
+      ],
+      "topics": ["ai-assisted-development", "claude", "cli", "developer-tools", "macos", "mcp", "secrets-management"]
     },
     {
       "name": "Automated code-review pipeline",
@@ -362,6 +431,12 @@
       "summary": "A set of reusable agent skills built for the squad: PR inbox (open PRs by author/reviewer), PR review, build-release email generation from Jira fix-versions, sprint/monthly squad briefings from Jira + Confluence, personal sprint retrospectives, Jira ticket creation from conversation, and an actionable-email rewriter for system alerts."
     }
   ],
+  "working_principles": [
+    "Specification before implementation: write the spec first, then review the code against it",
+    "Schema before endpoint: the schema is what you end up living with",
+    "Reversible steps over big-bang cutovers: every migration run could be rolled back at any point",
+    "Code review is where the real engineering standard gets set, more than in a style guide"
+  ],
   "leadership_philosophy": [
     "Write the specification, then review against it — make the disagreement happen before the code exists, when it is cheap.",
     "Code review is where teaching happens — the main quality surface and the main development surface at once; built an AI reviewer to take the mechanical half off people's plates.",
@@ -369,13 +444,12 @@
   ],
   "recruiter_quick_answers": {
     "current_role": "Principal Software Engineer at Educational Initiatives (Ei), Ahmedabad — 10 years there, 15 years total.",
-    "notice_period": "Currently serving notice; can join from mid-December 2026, earlier release possible.",
+    "notice_period": "Notice period 30 days; can join 30 days from offer acceptance.",
     "location_preference": "Ahmedabad-based; open to remote, hybrid, or relocation anywhere in India.",
     "role_preference": "Principal / Staff Engineer or Engineering Manager; backend/platform, commerce/billing or data-model-heavy domains.",
     "core_stack": "TypeScript/Node.js, PostgreSQL, microservices behind an API gateway, AWS; Angular on the front end; MCP/LLM tooling.",
-    "biggest_achievement": "Directed a no-downtime MySQL→PostgreSQL migration across six product lines with zero customer-visible incidents, from a 25k-word spec other engineers executed.",
+    "biggest_achievement": "Directed a no-downtime MySQL→PostgreSQL migration across six product lines in under six months: 500k+ records backfilled, ~30 legacy tables consolidated into 4, zero customer-visible incidents, from a 25k-word spec other engineers executed.",
     "team_size_led": "Squad lead for 4; guide ~10 engineers across teams; ~6 years in lead roles.",
-    "why_moving": "Looking for a larger platform/leadership scope and a materially higher package after a decade building Ei's commercial platform end to end.",
     "links": "LinkedIn: linkedin.com/in/hardyalsinghdeora · GitHub: github.com/hardyalsinghdeora · Email: hardyalsinghdeora@gmail.com"
   }
 }

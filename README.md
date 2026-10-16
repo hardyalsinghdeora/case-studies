@@ -11,8 +11,8 @@ schemas and figures are deliberately omitted; the reasoning is mine to discuss, 
 
 | File | What it is |
 |---|---|
+| [portfolio.html](https://hardyalsinghdeora.github.io/case-studies/portfolio.html) | Interactive portfolio page — ask it questions about my work ([source](portfolio.html)) |
+| [resume.html](https://hardyalsinghdeora.github.io/case-studies/resume.html) | One-page résumé (print to PDF from the browser) ([source](resume.html)) |
 | [profile.json](profile.json) | Machine-readable career profile — experience, systems owned, skills, current focus, recruiter quick answers |
-| [resume.html](resume.html) | One-page résumé (open in a browser, print to PDF) |
-| [portfolio.html](portfolio.html) | Interactive portfolio page — ask it questions about my work |
 
 Contact: hardyalsinghdeora@gmail.com · [LinkedIn](https://www.linkedin.com/in/hardyalsinghdeora)
