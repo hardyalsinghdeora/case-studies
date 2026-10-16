@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Hardyal Singh — Principal Software Engineer, Ahmedabad. Commerce, billing and subscription platforms; live database migration; API gateway architecture.">
+<style>:root{color-scheme:light dark}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style>
+</head>
+<body>
+<title>Hardyal Singh &#8212; Principal Software Engineer</title>
+
+<style>
+:root{
+  --bg:#FFFFFF; --panel:#FFFFFF; --soft:#F6F7F8; --ink:#0E1113; --ink-2:#4E555B;
+  --ink-3:#8A9198; --line:#E7EAEC; --line-2:#F0F2F3;
+  --accent:#5B62E8; --accent-ink:#FFFFFF;
+  --h1:#4B47A8; --h2:#14776A; --h3:#2A639B; --h4:#8C3A73; --h5:#5C7A1E; --h6:#A85A1E;
+  --r:18px; --r-sm:12px;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0D0F11; --panel:#15181B; --soft:#181C1F; --ink:#F1F3F4; --ink-2:#A8B0B6;
+    --ink-3:#767E85; --line:#242A2E; --line-2:#1C2124;
+    --accent:#8189F5;
+    --h1:#A5A2F0; --h2:#54C6B4; --h3:#77B5EC; --h4:#E091C8; --h5:#AECD68; --h6:#EAA25C;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D0F11; --panel:#15181B; --soft:#181C1F; --ink:#F1F3F4; --ink-2:#A8B0B6;
+  --ink-3:#767E85; --line:#242A2E; --line-2:#1C2124;
+  --accent:#8189F5;
+  --h1:#A5A2F0; --h2:#54C6B4; --h3:#77B5EC; --h4:#E091C8; --h5:#AECD68; --h6:#EAA25C;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --bg:#FFFFFF; --panel:#FFFFFF; --soft:#F6F7F8; --ink:#0E1113; --ink-2:#4E555B;
+  --ink-3:#8A9198; --line:#E7EAEC; --line-2:#F0F2F3;
+  --accent:#5B62E8;
+  --h1:#4B47A8; --h2:#14776A; --h3:#2A639B; --h4:#8C3A73; --h5:#5C7A1E; --h6:#A85A1E;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  min-height:100vh; min-height:100dvh;
+}
+
+/* ---------- shell ---------- */
+.shell{position:relative; min-height:100vh; min-height:100dvh; display:flex; flex-direction:column}
+
+.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:40;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 20px; pointer-events:none;
+}
+.topbar > *{pointer-events:auto}
+.mark{
+  display:inline-flex; align-items:center; gap:9px; padding:7px 13px 7px 8px;
+  background:var(--panel); border:1px solid var(--line); border-radius:999px;
+  font-size:.8rem; font-weight:600; color:var(--ink); cursor:pointer;
+  box-shadow:var(--shadow); transition:transform .18s, opacity .2s;
+  opacity:0; transform:translateY(-6px); pointer-events:none;
+}
+body.chatting .mark{opacity:1; transform:none; pointer-events:auto}
+.mark:hover{transform:translateY(-1px)}
+.mark .glyph{
+  width:22px; height:22px; border-radius:7px; display:grid; place-items:center;
+  background:linear-gradient(140deg,var(--h1),var(--h3)); color:#fff;
+  font-size:.6rem; font-weight:800; letter-spacing:.02em;
+}
+.tbtn{
+  width:34px; height:34px; border-radius:999px; display:grid; place-items:center;
+  background:var(--panel); border:1px solid var(--line); color:var(--ink-2);
+  cursor:pointer; box-shadow:var(--shadow); padding:0;
+}
+.tbtn:hover{color:var(--ink)}
+.tbtn svg{width:16px; height:16px}
+
+/* ---------- ghost wordmark ---------- */
+.ghost{
+  position:fixed; left:50%; bottom:-2vh; transform:translateX(-50%);
+  font-size:clamp(5rem,19vw,17rem); font-weight:800; letter-spacing:-.045em;
+  color:var(--ink); opacity:.032; white-space:nowrap; pointer-events:none;
+  z-index:0; user-select:none; line-height:.85;
+}
+@media (prefers-color-scheme:dark){.ghost{opacity:.05}}
+:root[data-theme="dark"] .ghost{opacity:.05}
+body.chatting .ghost{opacity:0 !important; transition:opacity .4s}
+
+/* ---------- home ---------- */
+.home{
+  flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:84px 20px 40px; position:relative; z-index:1;
+  transition:opacity .28s ease, transform .28s ease;
+}
+body.chatting .home{display:none}
+
+.avatar{
+  width:118px; height:118px; border-radius:34px; margin:0 0 22px;
+  display:grid; place-items:center; position:relative;
+  background:linear-gradient(150deg,var(--h1),var(--h3) 48%,var(--h2));
+  color:#fff; font-size:2.5rem; font-weight:800; letter-spacing:-.02em;
+  box-shadow:0 12px 34px color-mix(in srgb,var(--h1) 28%,transparent);
+}
+.avatar::after{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+}
+.greet{margin:0 0 4px; font-size:1.05rem; font-weight:600; color:var(--ink-2)}
+.greet .wave{display:inline-block}
+h1.role{
+  margin:0 0 18px; font-size:clamp(2.4rem,7.2vw,4.6rem); font-weight:800;
+  letter-spacing:-.035em; line-height:1.02;
+}
+.thesis{
+  margin:0 auto 34px; max-width:41ch; font-size:1.02rem; line-height:1.55;
+  color:var(--ink-2);
+}
+.thesis b{color:var(--ink); font-weight:650}
+
+/* ---------- composer ---------- */
+.composer{width:100%; max-width:600px; margin:0 auto}
+.home .composer{max-width:none}
+.home .ask{max-width:600px; margin:0 auto}
+.ask{
+  display:flex; align-items:center; gap:8px; width:100%;
+  background:var(--panel); border:1px solid var(--line); border-radius:999px;
+  padding:7px 7px 7px 22px; box-shadow:var(--shadow);
+  transition:border-color .18s, box-shadow .18s;
+}
+.ask:focus-within{
+  border-color:color-mix(in srgb,var(--accent) 45%,var(--line));
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 12%,transparent),var(--shadow);
+}
+.ask input{
+  flex:1; border:0; outline:0; background:transparent; color:var(--ink);
+  font-family:inherit; font-size:1rem; padding:11px 0; min-width:0;
+}
+.ask input::placeholder{color:var(--ink-3)}
+.send{
+  width:40px; height:40px; flex:none; border:0; border-radius:999px; cursor:pointer;
+  background:var(--accent); color:var(--accent-ink); display:grid; place-items:center;
+  transition:transform .16s, filter .16s;
+}
+.send:hover{transform:scale(1.05)}
+.send:active{transform:scale(.96)}
+.send svg{width:17px; height:17px}
+
+.chips{
+  display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin-top:18px;
+}
+.chip{
+  display:inline-flex; align-items:center; gap:8px; padding:10px 15px;
+  background:var(--panel); border:1px solid var(--line); border-radius:13px;
+  font-family:inherit; font-size:.855rem; font-weight:600; color:var(--ink);
+  cursor:pointer; transition:transform .16s, border-color .16s, background .16s;
+}
+.chip:hover{transform:translateY(-2px); border-color:color-mix(in srgb,var(--c,var(--accent)) 40%,var(--line))}
+.chip .ci{width:16px; height:16px; color:var(--c,var(--accent)); flex:none}
+.chip .ci svg{width:100%; height:100%; display:block}
+
+/* ---------- chat ---------- */
+.chat{
+  display:none; flex:1; width:100%; position:relative; z-index:1;
+  padding:78px 20px 220px;
+}
+body.chatting .chat{display:block}
+.thread{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:40px}
+
+.turn{animation:rise .42s cubic-bezier(.2,.7,.3,1) both}
+@keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+
+.q{
+  display:flex; justify-content:flex-end; margin-bottom:20px;
+}
+.q span{
+  background:var(--accent); color:var(--accent-ink); padding:10px 16px;
+  border-radius:16px 16px 4px 16px; font-size:.94rem; font-weight:500;
+  max-width:80%; line-height:1.45;
+}
+.a-head{
+  font-size:clamp(1.5rem,3.6vw,2.1rem); font-weight:800; letter-spacing:-.025em;
+  margin:0 0 18px;
+}
+.a-body{font-size:1rem; line-height:1.62; color:var(--ink-2)}
+.a-body p{margin:0 0 15px}
+.a-body p:last-child{margin-bottom:0}
+.a-body strong{color:var(--ink); font-weight:650}
+.lead{font-size:1.1rem; color:var(--ink); font-weight:500; line-height:1.5}
+
+.dots{display:inline-flex; gap:5px; padding:6px 0}
+.dots i{
+  width:7px; height:7px; border-radius:50%; background:var(--ink-3); display:block;
+  animation:blink 1.3s infinite;
+}
+.dots i:nth-child(2){animation-delay:.18s}
+.dots i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,60%,100%{opacity:.25} 30%{opacity:1}}
+
+/* ---------- answer widgets ---------- */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:20px 0}
+.stat{
+  background:var(--soft); border:1px solid var(--line-2); border-radius:var(--r-sm);
+  padding:14px 14px 12px;
+}
+.stat .n{font-size:1.65rem; font-weight:800; letter-spacing:-.03em; line-height:1; color:var(--c)}
+.stat .l{font-size:.72rem; color:var(--ink-3); margin-top:7px; line-height:1.35; font-weight:500}
+
+.cards{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:4px 0 0}
+.card{
+  border:1px solid color-mix(in srgb,var(--c) 22%,var(--line));
+  background:color-mix(in srgb,var(--c) 5%,var(--panel));
+  border-radius:var(--r); padding:17px 17px 18px;
+}
+.tag{
+  display:inline-block; font-size:.63rem; font-weight:800; letter-spacing:.09em;
+  text-transform:uppercase; color:#fff; background:var(--c);
+  padding:3px 8px; border-radius:5px; margin-bottom:10px;
+}
+@media (prefers-color-scheme:dark){.tag{color:#0D0F11}}
+:root[data-theme="dark"] .tag{color:#0D0F11}
+:root[data-theme="light"] .tag{color:#FFFFFF}
+.card h4{margin:0 0 7px; font-size:1rem; font-weight:700; color:var(--ink); letter-spacing:-.01em}
+.card p{margin:0; font-size:.875rem; line-height:1.55; color:var(--ink-2)}
+
+.tl{margin:6px 0 0; border-left:2px solid var(--line); padding-left:20px; display:flex; flex-direction:column; gap:22px}
+.job{position:relative}
+.job::before{
+  content:""; position:absolute; left:-26px; top:6px; width:10px; height:10px;
+  border-radius:50%; background:var(--c,var(--accent)); border:2px solid var(--bg);
+}
+.job .yr{font-family:var(--mono); font-size:.72rem; color:var(--ink-3); letter-spacing:.02em}
+.job h4{margin:3px 0 2px; font-size:1rem; font-weight:700; color:var(--ink)}
+.job .co{font-size:.85rem; color:var(--c,var(--ink-2)); font-weight:600; margin-bottom:6px}
+.job p{margin:0; font-size:.885rem; line-height:1.55; color:var(--ink-2)}
+
+.grp{margin:0 0 16px}
+.grp .gl{
+  font-size:.68rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--c); margin-bottom:8px;
+}
+.tags{display:flex; flex-wrap:wrap; gap:6px}
+.tags span{
+  font-family:var(--mono); font-size:.775rem; padding:5px 10px; border-radius:7px;
+  background:color-mix(in srgb,var(--c) 8%,var(--soft));
+  border:1px solid color-mix(in srgb,var(--c) 18%,var(--line));
+  color:var(--ink); white-space:nowrap;
+}
+
+.links{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:6px}
+.lnk{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:15px 17px; border:1px solid var(--line); border-radius:var(--r-sm);
+  background:var(--panel); text-decoration:none; transition:border-color .16s, transform .16s;
+}
+.lnk:hover{transform:translateY(-2px); border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.lnk .k{font-size:.68rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3)}
+.lnk .v{font-size:.92rem; font-weight:650; color:var(--ink); margin-top:4px; word-break:break-word}
+.lnk .arw{color:var(--ink-3); font-size:1rem; flex:none}
+
+.note{
+  margin-top:20px; padding:14px 16px; border-radius:var(--r-sm);
+  background:var(--soft); border:1px solid var(--line-2);
+  font-size:.875rem; line-height:1.55; color:var(--ink-2);
+}
+.note b{color:var(--ink)}
+
+.followups{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px}
+.fu{
+  padding:8px 13px; border-radius:10px; border:1px dashed var(--line);
+  background:transparent; font-family:inherit; font-size:.82rem; font-weight:550;
+  color:var(--ink-2); cursor:pointer; transition:border-color .16s, color .16s;
+}
+.fu:hover{border-style:solid; border-color:var(--accent); color:var(--ink)}
+
+/* ---------- dock ---------- */
+.dock{
+  position:fixed; left:0; right:0; bottom:0; z-index:30;
+  padding:34px 20px 18px; display:none;
+  background:linear-gradient(to top,var(--bg) 0%,var(--bg) 76%,transparent 100%);
+}
+body.chatting .dock{display:block}
+.dock .inner{max-width:760px; margin:0 auto}
+.dock .chips{margin:0 0 11px}
+.dock .chip{padding:8px 13px; font-size:.8rem; border-radius:11px}
+
+@media (max-width:720px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:1fr}
+  .links{grid-template-columns:1fr}
+  .avatar{width:96px; height:96px; border-radius:28px; font-size:2rem}
+  .chat{padding:70px 16px 236px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important; transition-duration:.01ms !important}
+}
+</style>
+
+<div class="shell">
+  <div class="ghost" aria-hidden="true">HARDYAL</div>
+
+  <header class="topbar">
+    <button class="mark" id="home-btn"><span class="glyph">HS</span> Hardyal Singh</button>
+    <span></span>
+    <button class="tbtn" id="theme-btn" aria-label="Toggle theme" title="Toggle theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </header>
+
+  <section class="home" id="home">
+    <div class="avatar">HS</div>
+    <p class="greet">Hey, I&#8217;m Hardyal <span class="wave">&#128075;</span></p>
+    <h1 class="role">Principal Software Engineer</h1>
+    <p class="thesis">I build the systems that turn a school&#8217;s <b>purchase order</b> into a student&#8217;s <b>first login</b>. Fifteen years in backend and platform engineering &#8212; ask me anything about it.</p>
+
+    <div class="composer">
+      <form class="ask" id="form-home">
+        <input id="in-home" type="text" placeholder="Ask me anything&#8230;" autocomplete="off" aria-label="Ask a question">
+        <button class="send" type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <div class="chips" id="chips-home"></div>
+    </div>
+  </section>
+
+  <section class="chat" id="chat"><div class="thread" id="thread"></div></section>
+
+  <div class="dock">
+    <div class="inner">
+      <div class="chips" id="chips-dock"></div>
+      <form class="ask" id="form-dock">
+        <input id="in-dock" type="text" placeholder="Ask me anything&#8230;" autocomplete="off" aria-label="Ask a question">
+        <button class="send" type="submit" aria-label="Send">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var H = ['var(--h1)','var(--h2)','var(--h3)','var(--h4)','var(--h5)','var(--h6)'];
+
+  var ICON = {
+    me:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>',
+    sys:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6"/></svg>',
+    exp:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="7" width="19" height="13" rx="2"/><path d="M8.5 7V5.2A1.7 1.7 0 0 1 10.2 3.5h3.6A1.7 1.7 0 0 1 15.5 5.2V7"/></svg>',
+    stk:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
+    kit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8l-5 4 5 4M16 8l5 4-5 4"/></svg>',
+    con:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.2"/><path d="M3.4 6.3L12 12.6l8.6-6.3"/></svg>'
+  };
+
+  var CHIPS = [
+    { label:'Me',         icon:'me',  c:H[0], q:'Who are you?' },
+    { label:'Systems',    icon:'sys', c:H[1], q:'What systems have you built?' },
+    { label:'Experience', icon:'exp', c:H[2], q:'Walk me through your experience.' },
+    { label:'Stack',      icon:'stk', c:H[3], q:'What is your stack?' },
+    { label:'Toolkit',    icon:'kit', c:H[4], q:'What have you built in the open?' },
+    { label:'Recent',     icon:'sys', c:H[5], q:'What are you working on right now?' },
+    { label:'Contact',    icon:'con', c:H[5], q:'How do I get in touch?' }
+  ];
+
+  function stats() {
+    var d = [
+      ['15','Years building backend and platform systems',H[0]],
+      ['6','Product lines bridged in a live migration',H[1]],
+      ['25k','Words of migration specification authored',H[3]],
+      ['12+','Domain services behind one gateway',H[5]]
+    ];
+    return '<div class="stats">' + d.map(function (s) {
+      return '<div class="stat" style="--c:'+s[2]+'"><div class="n">'+s[0]+'</div><div class="l">'+s[1]+'</div></div>';
+    }).join('') + '</div>';
+  }
+
+  var A = {};
+
+  A.me = {
+    head:'A bit about me',
+    body:
+      '<p class="lead">I build the systems that turn a school&#8217;s purchase order into a student&#8217;s first login.</p>' +
+      '<p>Fifteen years in backend and platform engineering, the last decade of it in education technology &#8212; where an order isn&#8217;t finished when it&#8217;s signed. It has to become a proposal, an invoice, an activation key, a subscription, and eventually a seat in a classroom, across a dozen services and two generations of database that both have to keep running.</p>' +
+      '<p>That handoff is the work I&#8217;m known for. I design the schema before the endpoint, because the schema is what you live with.</p>' +
+      stats() +
+      '<p>I&#8217;m a Principal Software Engineer in <strong>Ahmedabad, India</strong>, currently technical lead on a platform team. Certified SAFe 5 Agilist. B.Tech in Electronics &amp; Communication, RTU Kota.</p>',
+    fu:['What systems have you built?','How do you lead a team?','What are you looking for?']
+  };
+
+  A.systems = {
+    head:'Systems I&#8217;ve owned',
+    body:
+      '<p>Six areas, each one a system I designed or rebuilt rather than maintained. Colour marks the domain &#8212; it carries through the rest of this page.</p>' +
+      '<div class="cards">' +
+      [
+        ['Commerce','Order &amp; subscription platform','A SKU-based catalogue with bundle suggestion by grade and subject, rules-engine discounting, finance-auditable premium pricing, multi-year orders, invoicing, and the activation keys that become a student&#8217;s subscription.',H[0]],
+        ['Migration','MySQL to Postgres, live','A two-way bridge between a fifteen-year-old MySQL estate and new Postgres microservices. Dual-write, reconciliation, and a mapping spec precise enough that someone else could run the cutover. No maintenance window.',H[1]],
+        ['Platform','API gateway &amp; aggregation','One gateway fronting 12+ domain services: JWT auth, request validation, rate limiting, Redis caching, retrying upstream clients, structured logging. Solved once at the edge instead of six times badly.',H[2]],
+        ['Access','Multi-role authorisation','Users to groups to organisations, scoped consistently across services &#8212; including users holding several roles at once, and ownership overrides that have to survive every query path.',H[3]],
+        ['Field ops','Visits, evidence, retention','GPS-verified check-in, S3 document capture, a contribution to the speech-to-text and visit-summary design, and DPDP-compliant retention built in rather than retrofitted.',H[4]],
+        ['Integration','CRM, finance, HR','Third-party systems behind ports and adapters, so a vendor can be swapped without touching a single caller. Bounded-concurrency scheduled syncs above the gateway.',H[5]]
+      ].map(function (c) {
+        return '<div class="card" style="--c:'+c[3]+'"><span class="tag">'+c[0]+'</span><h4>'+c[1]+'</h4><p>'+c[2]+'</p></div>';
+      }).join('') +
+      '</div>' +
+      '<div class="note"><b>On specifics:</b> these are described at the level of architecture and trade-off. Employer-internal names, figures and data stay out of a public page &#8212; happy to go deep in conversation.</div>',
+    fu:['Tell me about the migration','How does the gateway work?','What is your stack?']
+  };
+
+  A.migration = {
+    head:'The migration',
+    body:
+      '<p class="lead">Replacing a fifteen-year-old database estate underneath products that students were using that same morning.</p>' +
+      '<p><strong>The constraint.</strong> No maintenance window. Live products kept serving throughout, which ruled out the obvious approach &#8212; freeze, dump, restore, repoint &#8212; entirely.</p>' +
+      '<p><strong>The shape.</strong> A two-way bridge. New Postgres microservices became the source of truth for their own domains while the legacy MySQL estate kept serving everything not yet moved. Writes propagated both directions during the overlap so neither side ever went stale.</p>' +
+      '<p><strong>What made it work.</strong> Three things. A mapping specification written before any code, precise enough that someone other than me could run the cutover. Reconciliation as a first-class job rather than an afterthought &#8212; you assume drift will happen and detect it, instead of assuming it won&#8217;t. And migrating by domain, not by table, so each cutover was independently reversible.</p>' +
+      '<p><strong>What I&#8217;d do differently.</strong> Instrument the reconciliation earlier. We built it in response to the first drift we found, which cost us a week of manual comparison we should never have done by hand.</p>' +
+      '<div class="note"><b>Case study:</b> the full written version &#8212; schema-level, with the failure modes and what I got wrong &#8212; is at <a href="https://github.com/hardyalsinghdeora/case-studies/blob/main/migration-live-commerce-platform.md" target="_blank" rel="noopener" style="color:var(--accent)">github.com/hardyalsinghdeora/case-studies</a>.</div>',
+    fu:['What systems have you built?','How do you lead a team?','How do I get in touch?']
+  };
+
+  A.experience = {
+    head:'Where I&#8217;ve worked',
+    body:
+      '<div class="tl">' +
+      [
+        ['Jul 2024 &#8212; now','Principal Software Engineer','Educational Initiatives','Architect the commercial platform behind the products the business sells to schools. Technical lead on a platform team. Own the technical specifications the team builds from, and drive service boundaries and data models out of commercial requirements.',H[0]],
+        ['Apr 2020 &#8212; Jul 2024','Lead Software Engineer','Educational Initiatives','Led the team enhancing adaptive learning platforms. Reworked CI/CD on Bitbucket Pipelines, cutting deployment time for the platform team. Ran planning and grooming, and made code review the team&#8217;s main quality and teaching surface.',H[1]],
+        ['Jun 2016 &#8212; Apr 2020','Senior Software Engineer','Educational Initiatives','Built diagnostic tooling for assessing Hindi language proficiency, a sales funnel dashboard that gave the commercial team visibility it had never had, and an internal tax module that removed manual steps from finance.',H[2]],
+        ['Jun 2015 &#8212; Jun 2016','Senior Software Engineer','Analytics Solutions','Enhanced mission-critical applications for a national FMCG brand. Ran field visits with real users and fed findings straight back into the product.',H[3]],
+        ['Feb 2014 &#8212; May 2015','Software Engineer','Ilogix Infotech','Built and scaled Laravel-based client platforms, and REST APIs consumed by mobile clients.',H[4]],
+        ['Jan 2013 &#8212; Feb 2014','Software Engineer','Seven Sleek Studio','Built a taxi booking product on CodeIgniter with the Google Maps API, plus custom WordPress themes and client-facing integrations.',H[5]],
+        ['Oct 2011 &#8212; Dec 2012','Junior Software Engineer','Softyoug Solutions','Built SEO-optimised sites in HTML5, CSS3 and JavaScript, and held the line on cross-browser compatibility.',H[0]]
+      ].map(function (j) {
+        return '<div class="job" style="--c:'+j[4]+'"><div class="yr">'+j[0]+'</div><h4>'+j[1]+'</h4><div class="co">'+j[2]+'</div><p>'+j[3]+'</p></div>';
+      }).join('') +
+      '</div>',
+    fu:['How do you lead a team?','What systems have you built?','What are you looking for?']
+  };
+
+  A.stack = {
+    head:'What I build with',
+    body:
+      '<p>Grouped by where it sits, not by how much I like it. The first line of each group is what I reach for by default.</p>' +
+      [
+        ['Languages &amp; runtime','TypeScript, Node.js, Hono, Express, Python, PHP',H[0]],
+        ['Data','PostgreSQL, MySQL, Redis, MongoDB, schema design, data migration',H[1]],
+        ['Platform &amp; cloud','AWS &#8212; S3, CloudFront, SQS, RDS, Azure, Docker, Bitbucket Pipelines',H[2]],
+        ['Front end','Angular, NgRx, RxJS, React, Tailwind',H[3]],
+        ['Practice','System design, API design, microservices, code review, SAFe, mentoring',H[4]]
+      ].map(function (g) {
+        return '<div class="grp" style="--c:'+g[2]+'"><div class="gl">'+g[0]+'</div><div class="tags">' +
+          g[1].split(', ').map(function (t) { return '<span>'+t+'</span>'; }).join('') +
+          '</div></div>';
+      }).join(''),
+    fu:['What systems have you built?','What have you built in the open?','How do I get in touch?']
+  };
+
+  A.leadership = {
+    head:'How I lead',
+    body:
+      '<p class="lead">Technical lead on a platform team, and squad lead for the group that owns our internal systems.</p>' +
+      '<p><strong>I write the specification, then review against it.</strong> Not to control the outcome &#8212; to make the disagreement happen before the code exists, when it is cheap. A spec that survives review is a team that already agrees.</p>' +
+      '<p><strong>Code review is where teaching happens.</strong> It is the only routine, low-stakes moment where a senior engineer&#8217;s reasoning is visible to everyone. I treat it as the main quality surface and the main development surface at the same time, which is also why I ended up building an AI reviewer &#8212; to take the mechanical half off people&#8217;s plates.</p>' +
+      '<p><strong>Guiding ten is different from managing one.</strong> Influence at that width comes from the artefacts you leave behind &#8212; specs, schemas, review comments, service boundaries &#8212; not from meetings. Most of my leverage is written down.</p>',
+    fu:['Walk me through your experience.','What are you looking for?','What systems have you built?']
+  };
+
+  A.open = {
+    head:'Built in the open',
+    body:
+      '<div class="cards">' +
+      '<div class="card" style="--c:'+H[4]+'"><span class="tag">Shipped</span><h4>claude-toolkit</h4><p>Eight dependency-free CLI tools that make AI-assisted coding sessions safer and cheaper: MCP server toggling with restorable config, a macOS Keychain vault built so an agent can <em>use</em> a credential without ever <em>seeing</em> it, database access that keeps passwords out of shell history, output compression, and offline code, schema and session indexes.</p></div>' +
+      '<div class="card" style="--c:'+H[2]+'"><span class="tag">In use daily</span><h4>Unattended code-review pipeline</h4><p>A scheduled agent pipeline (TypeScript, Node.js, MCP) that reviews every open pull request on a 30-minute cadence and publishes a triaged report per repository: a six-dimension quality matrix, evidence-based findings with file and line, severity-gated inline comments, and an approve / needs-fix verdict. It reads the linked ticket before it reads the diff.</p></div>' +
+      '<div class="card" style="--c:'+H[5]+'"><span class="tag">In progress</span><h4>AI pull request reviewer</h4><p>A Chrome extension that reviews Bitbucket PRs against a configurable standard, with a provider abstraction over hosted and local models so a team picks its own trade-off between cost, latency and privacy.</p></div>' +
+      '</div>' +
+      '<div class="links" style="margin-top:12px">' +
+      '<a class="lnk" href="https://github.com/hardyalsinghdeora/claude-toolkit" target="_blank" rel="noopener"><span><span class="k">Source</span><span class="v">github.com/&#8230;/claude-toolkit</span></span><span class="arw">&#8599;</span></a>' +
+      '<a class="lnk" href="https://github.com/hardyalsinghdeora" target="_blank" rel="noopener"><span><span class="k">Profile</span><span class="v">github.com/hardyalsinghdeora</span></span><span class="arw">&#8599;</span></a>' +
+      '</div>',
+    fu:['What is your stack?','Who are you?','How do I get in touch?']
+  };
+
+  A.recent = {
+    head:'What I&#8217;m working on now',
+    body:
+      '<p class="lead">2026 has been about consolidation: fewer services, one system of record, and automating the parts of engineering that were eating the team&#8217;s week.</p>' +
+      '<div class="cards">' +
+      [
+        ['Consolidation','One system of record for commerce','Made the commercial platform the single source of truth for client, order, payment and subscription &#8212; every other product consumes, none of them write. Drove the cross-team move of scattered endpoints into one versioned service.',H[0]],
+        ['Migration','Historical order backfill','The long tail of the live migration: historical orders across several product lines, with the open questions and sign-offs tracked as a decision record rather than tribal knowledge.',H[1]],
+        ['Data model','School intelligence onboarding','PostgreSQL schema for onboarding school data into an aggregator service &#8212; a dedicated schema inside an existing service database instead of yet another database; the aggregator reads others&#8217; data but writes only its own.',H[2]],
+        ['Real-time AI','Voice agents on LiveKit','Contributed to a real-time voice-agent pipeline (WebRTC transport, OpenAI and Gemini realtime models, per-session transcription and lifecycle webhooks) and ran the assessment of whether it could double as speech-to-text. Verdict: feasible, cost-inefficient, build a dedicated STT plugin instead.',H[3]],
+        ['Identity','Staff identity consolidation','Analysed duplicate staff identities and resigned users still holding access, and specified the consolidation so authorisation stays consistent across services.',H[4]],
+        ['Automation','Engineering-ops agents','A set of agent skills the squad runs daily: unattended PR review on a schedule, a PR inbox, build-release emails generated from the issue tracker, sprint and monthly briefings, and tickets raised from a conversation.',H[5]]
+      ].map(function (c) {
+        return '<div class="card" style="--c:'+c[3]+'"><span class="tag">'+c[0]+'</span><h4>'+c[1]+'</h4><p>'+c[2]+'</p></div>';
+      }).join('') +
+      '</div>' +
+      '<div class="note"><b>Machine-readable version:</b> everything on this page, plus skills and quick answers, is in <a href="https://github.com/hardyalsinghdeora/case-studies/blob/main/profile.json" target="_blank" rel="noopener" style="color:var(--accent)">profile.json</a> on GitHub.</div>',
+    fu:['What have you built in the open?','What are you looking for?','How do I get in touch?']
+  };
+
+  A.looking = {
+    head:'What I&#8217;m looking for',
+    body:
+      '<p class="lead">Principal or staff engineering, or engineering leadership. Remote, or on-site in Ahmedabad.</p>' +
+      '<p><strong>The work I want.</strong> Systems with real commercial consequence and enough history to be interesting &#8212; platforms mid-rebuild, estates that need migrating, domains where the data model is the hard part. I am at my best where the business rules are genuinely complicated and someone has to hold the whole shape in their head.</p>' +
+      '<p><strong>What I bring that is rarer than the stack.</strong> Fifteen years of watching decisions age. I have maintained systems I designed eight years earlier, which changes what you choose. And I can carry a commercial conversation and a schema review in the same afternoon.</p>' +
+      '<p><strong>Open to conversations now.</strong> Available to start from mid-December 2026, with an earlier start negotiable. The fastest route is email.</p>',
+    fu:['How do I get in touch?','Walk me through your experience.','How do you lead a team?']
+  };
+
+  A.contact = {
+    head:'Get in touch',
+    body:
+      '<p>Email is fastest and I answer it properly. Happy to talk through any of the systems above in more detail than a public page allows.</p>' +
+      '<div class="links">' +
+      '<a class="lnk" href="mailto:hardyalsinghdeora@gmail.com"><span><span class="k">Email</span><span class="v">hardyalsinghdeora@gmail.com</span></span><span class="arw">&#8599;</span></a>' +
+      '<a class="lnk" href="https://www.linkedin.com/in/hardyalsinghdeora" target="_blank" rel="noopener"><span><span class="k">LinkedIn</span><span class="v">in/hardyalsinghdeora</span></span><span class="arw">&#8599;</span></a>' +
+      '<a class="lnk" href="https://github.com/hardyalsinghdeora" target="_blank" rel="noopener"><span><span class="k">GitHub</span><span class="v">hardyalsinghdeora</span></span><span class="arw">&#8599;</span></a>' +
+      '<a class="lnk" href="https://github.com/hardyalsinghdeora/case-studies/blob/main/resume.html" target="_blank" rel="noopener"><span><span class="k">R&#233;sum&#233;</span><span class="v">case-studies/resume.html</span></span><span class="arw">&#8599;</span></a>' +
+      '</div>' +
+      '<div class="note">Based in <b>Ahmedabad, India</b>. Open to remote, and to relocation for the right role.</div>',
+    fu:['What are you looking for?','What systems have you built?','Who are you?']
+  };
+
+  var INTENTS = [
+    { a:'contact',    k:['contact','touch','email','reach','hire me','linkedin','github','resume','cv','call','talk','connect','mail'] },
+    { a:'recent',     k:['right now','currently','these days','recent','latest','working on','this year','2026','now'] },
+    { a:'looking',    k:['looking for','want','next role','opportunit','open to','available','job','hiring','why hire','why should','relocat','remote','notice'] },
+    { a:'migration',  k:['migration','migrat','mysql','postgres','database move','cutover','dual write','legacy','case study'] },
+    { a:'leadership', k:['lead','leader','manage','team','mentor','report','people','guide','review process','culture'] },
+    { a:'open',       k:['open source','opensource','toolkit','side project','built in the open','github project','extension','cli','claude','pr review','tooling','tools'] },
+    { a:'stack',      k:['stack','tech','technolog','language','tool','framework','skill','know','typescript','node','aws','postgres','angular','react','python','php','redis'] },
+    { a:'experience', k:['experience','career','history','background','work','worked','journey','cv','timeline','role','job history','past','company','companies','years'] },
+    { a:'systems',    k:['system','project','built','build','portfolio','architect','gateway','commerce','order','platform','access','field','integration','api','microservice','what do you do','done'] },
+    { a:'me',         k:['who','you','about','yourself','intro','hardyal','bio','tell me','summary','hello','hi','hey'] }
+  ];
+
+  function route(text) {
+    var t = ' ' + text.toLowerCase().replace(/[^a-z0-9 ]/g, ' ') + ' ';
+    var best = null, bestScore = 0;
+    INTENTS.forEach(function (it) {
+      var score = 0;
+      it.k.forEach(function (k) { if (t.indexOf(k) !== -1) score += k.length; });
+      if (score > bestScore) { bestScore = score; best = it.a; }
+    });
+    return bestScore > 0 ? best : null;
+  }
+
+  var thread = document.getElementById('thread');
+  var chat = document.getElementById('chat');
+
+  function chipHTML(c) {
+    return '<button class="chip" data-q="' + c.q + '" style="--c:' + c.c + '">' +
+           '<span class="ci">' + ICON[c.icon] + '</span>' + c.label + '</button>';
+  }
+  document.getElementById('chips-home').innerHTML = CHIPS.map(chipHTML).join('');
+  document.getElementById('chips-dock').innerHTML = CHIPS.map(chipHTML).join('');
+
+  function fallback(q) {
+    return {
+      head:'I don&#8217;t have an answer scripted for that',
+      body:'<p>This page answers from a written set of topics rather than a live model, so it will not invent anything about my career &#8212; which is the point.</p>' +
+           '<p>Try one of these, or just <a href="mailto:hardyalsinghdeora@gmail.com?subject=Question" style="color:var(--accent)">email me the question</a> and I&#8217;ll answer it myself.</p>',
+      fu:['Who are you?','What systems have you built?','Walk me through your experience.','How do I get in touch?']
+    };
+  }
+
+  function ask(q) {
+    q = (q || '').trim();
+    if (!q) return;
+
+    document.body.classList.add('chatting');
+
+    var turn = document.createElement('div');
+    turn.className = 'turn';
+    turn.innerHTML = '<div class="q"><span></span></div>' +
+                     '<div class="pending"><div class="dots"><i></i><i></i><i></i></div></div>';
+    turn.querySelector('.q span').textContent = q;
+    thread.appendChild(turn);
+    scrollEnd();
+
+    var key = route(q);
+    var ans = key ? A[key] : fallback(q);
+
+    setTimeout(function () {
+      var slot = turn.querySelector('.pending');
+      slot.className = 'answer';
+      slot.innerHTML = '<h2 class="a-head">' + ans.head + '</h2>' +
+                       '<div class="a-body">' + ans.body + '</div>' +
+                       '<div class="followups">' +
+                         ans.fu.map(function (f) {
+                           return '<button class="fu" data-q="' + f + '">' + f + '</button>';
+                         }).join('') +
+                       '</div>';
+      scrollEnd();
+    }, 460);
+  }
+
+  function scrollEnd() {
+    requestAnimationFrame(function () {
+      var last = thread.lastElementChild;
+      if (!last) return;
+      var y = last.getBoundingClientRect().top + window.pageYOffset - 96;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    });
+  }
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-q]');
+    if (b) { ask(b.getAttribute('data-q')); return; }
+    if (e.target.closest('#home-btn')) {
+      document.body.classList.remove('chatting');
+      thread.innerHTML = '';
+      window.scrollTo({ top: 0 });
+    }
+  });
+
+  ['home','dock'].forEach(function (id) {
+    document.getElementById('form-' + id).addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = document.getElementById('in-' + id);
+      ask(input.value);
+      input.value = '';
+      if (id === 'home') setTimeout(function () { document.getElementById('in-dock').focus(); }, 60);
+    });
+  });
+
+  var themeBtn = document.getElementById('theme-btn');
+  themeBtn.addEventListener('click', function () {
+    var root = document.documentElement;
+    var dark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme', dark ? 'light' : 'dark');
+  });
+})();
+</script>
+</body>
+</html>

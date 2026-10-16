@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hardyal Singh Résumé</title>
+<style>
+:root{--ink:#141414;--muted:#4a4a4a;--accent:#1f3a5f;--rule:#d7d7d7;--link:#0b57d0}
+*{box-sizing:border-box}
+body{margin:0 auto;padding:12mm 14mm;max-width:210mm;font-family:"Inter","Carlito","Calibri",Arial,sans-serif;font-size:9.7pt;line-height:1.3;color:var(--ink);background:#fff}
+a{color:var(--link);text-decoration:none}
+.hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:14pt;border-bottom:2px solid var(--accent);padding-bottom:6pt;margin-bottom:6pt}
+.who{flex:1 1 58%}
+h1{font-size:19pt;letter-spacing:1.5px;margin:0;color:var(--accent);text-transform:uppercase;white-space:nowrap}
+.tagline{font-size:10.2pt;font-weight:600;margin-top:3pt;color:var(--ink)}
+.contact{flex:0 0 auto;font-size:8.6pt;color:var(--muted);text-align:right;line-height:1.5;padding-top:2pt}
+h2{font-size:9.8pt;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent);margin:9pt 0 3pt;padding-bottom:1.5pt;border-bottom:1px solid var(--rule)}
+p{margin:0 0 2.5pt}
+.role{margin-top:6pt;break-inside:avoid}
+.rolehead{display:flex;justify-content:space-between;align-items:baseline;gap:8pt}
+.title{font-weight:700;font-size:10.2pt}
+.co{color:var(--muted)}
+.dates{color:var(--muted);font-size:9pt;white-space:nowrap}
+.scope{font-size:9.1pt;color:var(--muted);margin:1.5pt 0 1pt;font-style:italic}
+ul{margin:2.5pt 0 0;padding-left:13pt}
+li{margin-bottom:2pt}
+.kv{margin-bottom:2pt}
+.certs{display:flex;flex-wrap:wrap;gap:6pt 14pt;margin-top:3pt}
+.cert{flex:1 1 45%;border-left:3px solid var(--accent);padding-left:7pt}
+.cn{font-weight:700} .cy{font-size:8.8pt;color:var(--muted)}
+@page{size:A4;margin:12mm 14mm}
+@media print{body{padding:0;max-width:none} h2{margin-top:8pt} .hdr,.role,.cert{break-inside:avoid}}
+@media screen{body{background:#fff;color:#141414}}
+</style></head><body>
+<header class="hdr"><div class="who"><h1>Hardyal Singh</h1><div class="tagline">Principal Software Engineer | Commerce, Billing &amp; Subscription Platforms</div></div>
+<div class="contact">Ahmedabad, India<br>open to relocation anywhere in India and remote<br>+91 9909122100 &nbsp;·&nbsp; <a href="mailto:hardyalsinghdeora@gmail.com">hardyalsinghdeora@gmail.com</a><br><a href="https://linkedin.com/in/hardyalsinghdeora">linkedin.com/in/hardyalsinghdeora</a> &nbsp;·&nbsp; <a href="https://github.com/hardyalsinghdeora">github.com/hardyalsinghdeora</a></div></header>
+<h2>Executive Profile</h2>
+<p>Principal Software Engineer with 15 years in backend and distributed systems, specialising in commerce, billing and order-to-cash platforms for a B2B education business. Owns architecture across 12+ domain services behind a single API gateway and writes the technical specifications other engineers execute. Directed a live MySQL-to-PostgreSQL migration across six product lines with no maintenance window, and designed the finance-auditable billing, discounting and invoicing models the commercial platform runs on. Six years leading engineering teams: sprint delivery, code review as the quality bar, onboarding design and mentoring across several squads.</p>
+<h2>Technical Matrix</h2>
+<p class="kv"><strong>Architecture:</strong> System design, microservices, distributed systems, event-driven architecture, multi-tenant architecture, idempotency, API design, REST APIs, API gateway, backend-for-frontend (BFF), JSON Web Token (JWT), rate limiting, data migration, schema design</p>
+<p class="kv"><strong>Commerce &amp; Billing:</strong> Order-to-cash, billing, invoicing, subscriptions, pricing and discounting, SKU catalogue, proration, approval workflows, Days Sales Outstanding (DSO), finance-auditable derivation</p>
+<p class="kv"><strong>Languages &amp; Data:</strong> TypeScript, Node.js, Python, PHP, Express, Hono, PostgreSQL, MySQL, SQL, Redis, MongoDB</p>
+<p class="kv"><strong>Cloud &amp; Delivery:</strong> Amazon Web Services (AWS) — S3, CloudFront, SQS, RDS; Azure; Docker; Continuous Integration/Continuous Deployment (CI/CD); Bitbucket Pipelines</p>
+<p class="kv"><strong>AI &amp; Automation:</strong> Model Context Protocol (MCP) servers, scheduled agent pipelines for code review, LLM-assisted engineering workflows</p>
+<p class="kv"><strong>Leadership &amp; Practice:</strong> Technical leadership, technical specification, design review, code review, mentoring, onboarding design, stakeholder management, Agile, Scrum, Scaled Agile Framework (SAFe)</p>
+<h2>Professional Experience</h2>
+<div class="role"><div class="rolehead"><div><span class="title">Principal Software Engineer</span> <span class="co">| Educational Initiatives — Ahmedabad, India</span></div><div class="dates">07/2024 – Present</div></div>
+<p class="scope">Scope: architecture and data-model owner across the commercial platform; squad lead for four engineers; named tech lead on invoicing, a field-operations product and legacy product support; guides ~10 engineers across several teams.</p>
+<ul>
+<li><strong>Platform Architecture:</strong> Own architecture across 12+ domain services behind one API gateway — service boundaries, data models, and the specifications the team builds from; JWT verification and per-route rate limiting solved once at the edge instead of per service.</li>
+<li><strong>Live Database Migration:</strong> Directed a live MySQL-to-PostgreSQL migration across six product lines with no maintenance window, separating a re-runnable historical backfill from a continuous reverse-sync so unmigrated products kept serving; specified ID mapping, idempotency, retries, monitoring and rollback in ~25,000 words of specification executed by other engineers. Zero customer-visible incidents.</li>
+<li><strong>Finance-Auditable Billing:</strong> Designed a discount engine with a four-tier approval ladder from self-approval to C-suite, rack-rate versus selling-price handling, and contract terms derived from dates rather than stored, so finance can re-derive every invoice line.</li>
+<li><strong>Schema Decision to P&amp;L Metric:</strong> As tech lead for invoicing, designed oldest-invoice-first payment mapping with structured proof-of-payment capture to cut reconciliation lag against a Days Sales Outstanding (DSO) target.</li>
+<li><strong>Peak Reliability:</strong> Re-architected a blocking annual batch path into asynchronous per-activity events, holding 99.9% uptime through the academic-year peak on a system that had previously stalled under it; built the activation path that turns a paid order into access, with queue-driven activation and deactivation.</li>
+<li><strong>Technical Leadership:</strong> Set review, testing and coding standards in business-critical modules; coach engineers on defect prevention and root-cause analysis; report programme status to leadership monthly, seven consecutive months.</li>
+</ul>
+</div>
+<div class="role"><div class="rolehead"><div><span class="title">Lead Software Engineer</span> <span class="co">| Educational Initiatives — Ahmedabad, India</span></div><div class="dates">04/2020 – 07/2024</div></div>
+<ul>
+<li><strong>Order-to-Cash Data Model:</strong> Built the order and subscription model the commercial platform still runs on — SKU catalogue, contract-term and proration derivation, invoicing and effective-count derivation.</li>
+<li><strong>Delivery Leadership:</strong> Led sprint planning, backlog grooming and stakeholder communication across ~30 recorded sprints; published annual build-and-release plans and tracked sprint overspill.</li>
+<li><strong>Engineering Practice:</strong> Established code review as the team's primary quality and teaching surface; designed 30- and 90-day onboarding plans; ran 1:1s and coached engineers on prioritisation and ownership.</li>
+<li><strong>Platform Modernisation:</strong> Ran a PHP 5.3 to 7.3 migration moving the full user base off deprecated servers; reworked CI/CD on Bitbucket Pipelines, cutting deployment time for the platform team.</li>
+<li><strong>Integrations and Product:</strong> Shipped a versioned partner CRM integration with published API documentation; delivered a tenth regional language with offline distribution, automated user transfer, annual class upgrade and credential revocation in the sync mechanism.</li>
+</ul>
+</div>
+<div class="role"><div class="rolehead"><div><span class="title">Senior Software Engineer</span> <span class="co">| Educational Initiatives — Ahmedabad, India</span></div><div class="dates">06/2016 – 04/2020</div></div>
+<ul>
+<li>Built regional-language diagnostic assessment tooling, commercial pipeline dashboards and an internal finance tax module that removed manual steps from finance workflows.</li>
+</ul>
+</div>
+<div class="role"><div class="rolehead"><div><span class="title">Earlier Roles (PHP and Front-End Development)</span> <span class="co">| Four employers — Ahmedabad, India</span></div><div class="dates">10/2011 – 06/2016</div></div>
+<ul>
+<li>Senior PHP Developer, Analytics Solution (06/2015 – 06/2016): mission-critical applications for a national FMCG brand, with field research fed back into the product.</li>
+<li>PHP Developer, Ilogix Infotech (02/2014 – 05/2015) and Seven Sleek (01/2013 – 02/2014): Laravel platforms and REST APIs for mobile clients; a taxi-booking product on CodeIgniter with the Google Maps API.</li>
+<li>Front End Developer, Softyoug Solution (10/2011 – 12/2012): SEO-optimised HTML5/CSS3/JavaScript sites with cross-browser and W3C compliance.</li>
+</ul>
+</div>
+<h2>Projects</h2>
+<p class="kv"><strong>Automated code-review pipeline</strong> — scheduled agent pipeline that reviews open pull requests unattended on a 30-minute cadence and publishes a triaged report per repository. TypeScript, Node.js, Model Context Protocol (MCP).</p>
+<p class="kv"><strong>Migration case study (public)</strong> — decision record of the live MySQL-to-PostgreSQL migration: what was rejected and why, the two-flow design, and the reconciliation lesson. <a href="https://github.com/hardyalsinghdeora/case-studies">github.com/hardyalsinghdeora/case-studies</a></p>
+<h2>Education</h2>
+<p><strong>Bachelor of Technology (B.Tech), Electronics and Communication Engineering</strong>, Rajasthan Technical University (RTU), Kota — 2011</p>
+<h2>Certifications</h2>
+<div class="certs">
+<div class="cert"><div class="cn">Certified SAFe 5 Agilist, Scaled Agile</div><div class="cy">2022 &nbsp;·&nbsp; <a href="https://credly.com/badges/9653e68f-54cd-4163-af6d-d4c6d5bbb467">credly.com/badges/9653e68f-54cd-4163-af6d-d4c6d5bbb467</a></div></div>
+<div class="cert"><div class="cn">Google Project Management Certificate, Google / Coursera</div><div class="cy">2023 &nbsp;·&nbsp; <a href="https://coursera.org/verify/specialization/R8QES2TYMDN5">coursera.org/verify/specialization/R8QES2TYMDN5</a></div></div>
+</div>
+</body></html>
