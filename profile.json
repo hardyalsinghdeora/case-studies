@@ -10,7 +10,8 @@
   "identity": {
     "full_name": "Hardyal Singh Deora",
     "display_name": "Hardyal Singh",
-    "headline": "Principal Software Engineer | Commerce, Billing & Subscription Platforms",
+    "headline": "Principal Software Engineer | Commerce, Billing & Subscription Platforms | PostgreSQL · Node.js · TypeScript · AWS | Microservices, Live Database Migration, Technical Leadership",
+    "headline_short": "Principal Software Engineer | Commerce, Billing & Subscription Platforms",
     "one_liner": "I build the systems that turn a signed contract into an invoice, an activation and a live subscription, and make them auditable enough that finance can rely on the numbers.",
     "one_liner_edtech": "I build the systems that turn a school's purchase order into a student's first login.",
     "github_bio": "Commerce, billing & subscription platforms. TypeScript · Node · Postgres · AWS. India · Open to Remote.",
@@ -23,19 +24,24 @@
     "education": {
       "degree": "B.Tech, Electronics and Communication Engineering",
       "institution": "Rajasthan Technical University (RTU), Kota",
+      "from": 2007,
       "year": 2011
     },
     "certifications": [
       {
         "name": "Certified SAFe 5 Agilist",
         "issuer": "Scaled Agile",
+        "issued": "2022-06",
         "year": 2022,
+        "credential_id": "34717074-1094",
         "verify": "https://credly.com/badges/9653e68f-54cd-4163-af6d-d4c6d5bbb467"
       },
       {
         "name": "Google Project Management Certificate",
         "issuer": "Google / Coursera",
+        "issued": "2022-07",
         "year": 2022,
+        "credential_id": "R8QES2TYMDN5",
         "verify": "https://coursera.org/verify/specialization/R8QES2TYMDN5"
       }
     ]
@@ -48,22 +54,30 @@
     "preferred_channel": "Email (answered promptly); happy to schedule a call from there"
   },
   "availability": {
-    "status": "Open to conversations now; actively interviewing",
+    "status": "Open to conversations now; actively interviewing (LinkedIn Open to Work, recruiters only)",
     "notice_period": "30 days",
     "earliest_join": "30 days from offer acceptance",
     "work_mode": [
       "Remote",
       "Hybrid",
-      "On-site Ahmedabad"
+      "On-site"
+    ],
+    "on_site_locations": [
+      "Pune",
+      "Bengaluru",
+      "Hyderabad",
+      "Ahmedabad (home base)"
     ],
     "relocation": "Open to relocation anywhere in India"
   },
   "targeting": {
     "roles": [
-      "Principal Engineer",
-      "Staff Engineer",
+      "Principal Software Engineer",
+      "Staff Software Engineer",
+      "Software Architect",
       "Engineering Manager / Tech Lead",
-      "Backend / Platform Architect"
+      "Backend / Platform Architect",
+      "Senior Software Engineer (for the right platform scope)"
     ],
     "domains_of_strength": [
       "Commerce & order-to-cash",
@@ -234,7 +248,8 @@
         "Finance-auditable billing: designed a discount engine with a four-tier approval ladder (self-approval to C-suite), rack-rate vs selling-price handling, and date-derived contract terms.",
         "Invoicing tech lead: designed oldest-invoice-first payment mapping with structured proof-of-payment capture to cut reconciliation lag against a DSO target.",
         "Peak reliability: re-architected a blocking annual batch path into asynchronous per-activity events, holding 99.9% uptime through the academic-year peak; built queue-driven order-to-access activation/deactivation.",
-        "Technical leadership: set review, testing and coding standards in business-critical modules; coach on defect prevention and root-cause analysis; monthly programme status to leadership for 7+ consecutive months."
+        "Technical leadership: set review, testing and coding standards in business-critical modules; coach on defect prevention and root-cause analysis; monthly programme status to leadership for 7+ consecutive months.",
+        "Set the standards the platform is built to: API contracts, schema design, review practice, and how services communicate; work with leadership to translate commercial requirements into service boundaries and data models."
       ]
     },
     {
@@ -248,7 +263,8 @@
         "Led sprint planning, backlog grooming and stakeholder communication across ~30 recorded sprints; published annual build-and-release plans; tracked sprint overspill.",
         "Established code review as the team's primary quality and teaching surface; designed 30- and 90-day onboarding plans; ran 1:1s.",
         "Ran a PHP 5.3 → 7.3 migration moving the full user base off deprecated servers; reworked CI/CD on Bitbucket Pipelines, cutting deployment time.",
-        "Shipped a versioned partner CRM integration with published API docs; delivered a tenth regional language with offline distribution, automated user transfer, annual class upgrade and credential revocation in the sync mechanism."
+        "Shipped a versioned partner CRM integration with published API docs; delivered a tenth regional language with offline distribution, automated user transfer, annual class upgrade and credential revocation in the sync mechanism.",
+        "Guided engineers through design review and technical specification writing; owned stakeholder communication across product and engineering."
       ]
     },
     {
@@ -268,7 +284,8 @@
       "from": "2015-06",
       "to": "2016-06",
       "highlights": [
-        "Enhanced mission-critical applications for a national FMCG brand; ran field visits with real users and fed findings back into the product."
+        "Enhanced mission-critical applications for a national FMCG brand; ran field visits with real users and fed findings back into the product.",
+        "Proposed and implemented optimisations that improved reliability and reduced downtime."
       ]
     },
     {
@@ -288,13 +305,13 @@
       "from": "2013-01",
       "to": "2014-02",
       "highlights": [
-        "Built a taxi-booking product on CodeIgniter with the Google Maps API; custom WordPress themes and client integrations."
+        "Built \"Cabbing\", a taxi-booking product, on CodeIgniter with the Google Maps API; custom WordPress themes and client-facing integrations."
       ]
     },
     {
       "title": "Front End Developer",
       "company": "Softyoug Solution",
-      "location": "Vapi, India",
+      "location": "Vapi, Gujarat, India",
       "from": "2011-10",
       "to": "2012-12",
       "highlights": [
@@ -431,6 +448,39 @@
       "summary": "A set of reusable agent skills built for the squad: PR inbox (open PRs by author/reviewer), PR review, build-release email generation from Jira fix-versions, sprint/monthly squad briefings from Jira + Confluence, personal sprint retrospectives, Jira ticket creation from conversation, and an actionable-email rewriter for system alerts."
     }
   ],
+  "linkedin": {
+    "url": "https://www.linkedin.com/in/hardyalsinghdeora",
+    "checked": "2026-10-16",
+    "listed_skills": [
+      "Software Architecture",
+      "Microservices",
+      "Technical Leadership",
+      "Mentoring",
+      "JavaScript",
+      "API Gateways",
+      "Redis",
+      "Agile Methodologies",
+      "CI/CD",
+      "Angular",
+      "Team Management"
+    ],
+    "open_to_work": {
+      "visibility": "Recruiters only",
+      "job_titles": [
+        "Principal Software Engineer",
+        "Staff Software Engineer",
+        "Software Architect",
+        "Engineering Manager",
+        "Senior Software Engineer"
+      ],
+      "location_types": ["On-site", "Hybrid", "Remote"],
+      "on_site_locations": ["Pune Division", "Bengaluru", "Hyderabad"],
+      "remote_locations": ["Ahmedabad"],
+      "notice_period": "30 days",
+      "start_date": "Immediately; actively applying",
+      "employment_types": ["Full-time"]
+    }
+  },
   "working_principles": [
     "Specification before implementation: write the spec first, then review the code against it",
     "Schema before endpoint: the schema is what you end up living with",
@@ -445,8 +495,8 @@
   "recruiter_quick_answers": {
     "current_role": "Principal Software Engineer at Educational Initiatives (Ei), Ahmedabad — 10 years there, 15 years total.",
     "notice_period": "Notice period 30 days; can join 30 days from offer acceptance.",
-    "location_preference": "Ahmedabad-based; open to remote, hybrid, or relocation anywhere in India.",
-    "role_preference": "Principal / Staff Engineer or Engineering Manager; backend/platform, commerce/billing or data-model-heavy domains.",
+    "location_preference": "Ahmedabad-based; open to remote or hybrid, on-site in Pune, Bengaluru or Hyderabad, or relocation anywhere in India.",
+    "role_preference": "Principal / Staff Engineer, Software Architect or Engineering Manager; backend/platform, commerce/billing or data-model-heavy domains.",
     "core_stack": "TypeScript/Node.js, PostgreSQL, microservices behind an API gateway, AWS; Angular on the front end; MCP/LLM tooling.",
     "biggest_achievement": "Directed a no-downtime MySQL→PostgreSQL migration across six product lines in under six months: 500k+ records backfilled, ~30 legacy tables consolidated into 4, zero customer-visible incidents, from a 25k-word spec other engineers executed.",
     "team_size_led": "Squad lead for 4; guide ~10 engineers across teams; ~6 years in lead roles.",
