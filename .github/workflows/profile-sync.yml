@@ -1,0 +1,27 @@
+# Fails when profile.json here differs from the portfolio's source of truth
+# (github.com/hardyalsinghdeora/portfolio, knowledge/profile.json), so the copy can't drift silently.
+# To fix a failure, copy that file over profile.json and commit.
+name: Profile in sync with portfolio
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare with the portfolio's knowledge/profile.json
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/hardyalsinghdeora/portfolio/main/knowledge/profile.json -o upstream.json
+          if ! diff -u upstream.json profile.json; then
+            echo "::error file=profile.json::profile.json differs from portfolio/knowledge/profile.json on main. Copy it over and commit."
+            exit 1
+          fi
