@@ -96,15 +96,15 @@ We were measuring correctness at the end. We should have been measuring it conti
 
 ---
 
-## 6. What it cost
+## 6. What it cost, and where it stands
 
-- **Timeline:** under six months from the first specification to steady state
+- **Status:** the first product lines are live on the new platform; the remaining lines are built, tested and in pilot. The legacy products have stayed live and kept writing throughout
 - **Records moved:** over half a million in the historical backfill — organisations, orders, users and their product subscriptions, consolidated from two upstream systems of record
 - **Scope:** six product lines, roughly thirty legacy tables → four generic ones
 - **Specification:** ~25,000 words across seven documents
 - **Team:** a platform team; I designed and specified, the team executed
-- **Incidents:** none customer-visible. The drift in §5 was found by our own comparison and resolved before any customer saw it
-- **Rollbacks exercised:** none. Every phase was built to be reversed and none had to be; what actually absorbed the mistakes was the re-runnable backfill in §3, which turned out to be the cheaper property to have
+- **Incidents:** none customer-visible so far. The drift in §5 was found by our own comparison and resolved before any customer saw it
+- **Rollbacks exercised:** none so far. Every phase was built to be reversed and none has had to be; what actually absorbed the mistakes was the re-runnable backfill in §3, which turned out to be the cheaper property to have
 
 ---
 
