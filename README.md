@@ -23,7 +23,7 @@ portfolio and contain no employer code.
 
 | File | What it is |
 |---|---|
-| [Portfolio](https://hardyalsinghdeora.pages.dev/) | Interactive portfolio page — ask it questions about my work ([source](https://github.com/hardyalsinghdeora/portfolio)). `portfolio.html` here only redirects there. |
+| [Portfolio](https://hardyal.is-a.dev/) | Interactive portfolio page — ask it questions about my work ([source](https://github.com/hardyalsinghdeora/portfolio)). `portfolio.html` here only redirects there. |
 | [resume.html](https://hardyalsinghdeora.github.io/case-studies/resume.html) | One-page résumé (print to PDF from the browser) ([source](resume.html)) |
 | [profile.json](profile.json) | Machine-readable career profile — experience, systems owned, skills, current focus, recruiter quick answers. A copy of the portfolio's [`knowledge/profile.json`](https://github.com/hardyalsinghdeora/portfolio/blob/main/knowledge/profile.json); CI fails if the two differ |
 
